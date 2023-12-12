@@ -28,8 +28,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-fatimamahate-study-buddy-ybvumm9rzh.us2.codeanyapp.com',
-                 "study-buddy-blog-01ab6e2c45d9.herokuapp.com/",
-                 "localhost"]
+                 'study-buddy-blog-01ab6e2c45d9.herokuapp.com',
+                 'localhost']
 
 
 # Application definition
