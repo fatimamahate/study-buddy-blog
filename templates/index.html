@@ -12,7 +12,7 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <img
                   class="card-img-top"
-                  src="../media/images/default_image.jpg"
+                  src="../media/pexels-lil-artsy-1925536.jpg"
                 />
                 {% else %}
                 <img class="card-img-top" src="{{ post.featured_image.url }}" />
@@ -21,7 +21,7 @@
                   <p class="author">Author: {{post.author}}</p>
                 </div>
               </div>
-              <a href="#" class="post-link">
+              <a href="{% url 'post_detail' post.slug  %}" class="post-link">
                 <h2 class="card-title">{{ post.title }}</h2>
                 <p class="card-text">{{ post.excerpt }}</p>
               </a>
