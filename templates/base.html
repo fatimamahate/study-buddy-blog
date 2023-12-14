@@ -86,9 +86,14 @@
     </nav>
 
     <main class="flex-shrink-0 main-bg">
-      {% block content %}
-      <!-- add my content here-->
-      {% endblock content %}
+        {% if user.is_authenticated %}
+        <p class="text-end m-3"> Hello, {{ user.username }}! You are signed in!</p>
+        {% else %}
+        <p class="text-end m-3"> Hello, you aren't signed in</p>
+        {% endif %}
+        {% block content %}
+        <!-- add content here -->
+        {% endblock content %}
     </main>
 
     <!-- Footer -->

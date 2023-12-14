@@ -5,31 +5,42 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
 
 {% block content %}
-<div>
-    <div>
-        <div>
-            <h4>{% tr  ans "Sign Out" %}</h4>
+<div class = "container">
+    <div class="row">
+        <div class = "col-md-8 mt-3 offset-md-2 text-center">
+            <h4>{% trans "Sign Out" %}</h4>
 
-            <p>{% trans 'Do you want to sign out? Click Sign Me Out Now below' %}</p>
+            <p>{% trans 'Do you want to sign out? Click <strong>Sign Me Out Now</strong> below' %}</p>
         </div>
     </div>
 </div>
-
 
 <form method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
-  <button class= "btn btn-signup btn-default" type="submit">{% trans 'Sign Me Out Now' %}</button>
+  <div class ="col text-center">
+    <button class="btn btn-signup btn-default" type="submit">{% trans 'Sign Me Out Now' %}</button>
+  </div>
 </form>
-<p>{% trans 'Want to go back? Click Take Me Back below' %}</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2 text-center">
+            <p>{% trans 'Want to go back? Click <strong>Take Me Back Now</strong>  below' %}</p>
+        </div>
+    </div>
+</div>
+
 <form method="post" action="{% url 'account_login' %}">
     {% csrf_token %}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button class="btn btn-signup btn-default" type="submit">{% trans 'Take Me Back' %}</button>
+    <div class="col text-center">
+        <button class="btn btn-signup btn-default" type="submit">{% trans 'Take Me Back Now' %}</button>
+    </div>
 </form>
 
 {% endblock content %}
