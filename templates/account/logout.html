@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock head_title %}
+
+{% block content %}
+<div>
+    <div>
+        <div>
+            <h4>{% tr  ans "Sign Out" %}</h4>
+
+            <p>{% trans 'Do you want to sign out? Click Sign Me Out Now below' %}</p>
+        </div>
+    </div>
+</div>
+
+
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button class= "btn btn-signup btn-default" type="submit">{% trans 'Sign Me Out Now' %}</button>
+</form>
+<p>{% trans 'Want to go back? Click Take Me Back below' %}</p>
+<form method="post" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button class="btn btn-signup btn-default" type="submit">{% trans 'Take Me Back' %}</button>
+</form>
+
+{% endblock content %}
