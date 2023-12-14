@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
 
 <div class="masthead">
   <div class="container">
@@ -7,8 +9,8 @@
       <p class="post-subtitle">{{post.author}} | {{post.created_on}}</p>
     </div>
     <div class="d-none d-md-block col-md-6 masthead-image">
-      {% if "placeholder" in featured_image.url %}
-      <img src="../media/default_image.jpg" width="100%" />
+      {% if "placeholder" in post.featured_image.url %}
+      <img src = "{% static 'images/pexels-lil-artsy-1925536.jpg' %}" width="100%" />
       {% else %}
       <img src="{{ post.featured_image.url }}" width="100%" />
       {% endif %}

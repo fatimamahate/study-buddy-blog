@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['8000-fatimamahate-study-buddy-ybvumm9rzh.us2.codeanyapp.com',
                  'study-buddy-blog-01ab6e2c45d9.herokuapp.com',
                  'localhost']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # Application definition
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    # 'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -54,6 +56,15 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# MESSAGE_TAGS = {
+#         messages.DEBUG: 'alert-info',
+#         messages.INFO: 'alert-info',
+#         messages.SUCCESS: 'alert-success',
+#         messages.WARNING: 'alert-warning',
+#         messages.ERROR: 'alert-danger',
+#     }
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -139,7 +150,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
