@@ -185,7 +185,7 @@ These are the user stories that were tested:
 ##### Credits
 
 1. [Code Institute:](https://codeinstitute.net/) - projects (both old and new) and tutor support (who were amazing!)
-2. [Stack Overflow:](https://stackoverflow.com) - edit/delete
+2. [Stack Overflow:](https://stackoverflow.com) - edit/delete comments
 3. [Unsplash: image by firmbee.com](https://unsplash.com/photos/person-writing-on-white-paper-gcsNOsPEXfs)
 4. [Pexels: by lil artsy](https://www.pexels.com/photo/person-holding-orange-pen-1925536/)
 5. [Pexels: by monstera production](https://www.pexels.com/photo/focused-students-doing-homework-together-in-light-workspace-6237955/)
