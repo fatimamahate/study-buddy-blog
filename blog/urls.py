@@ -6,4 +6,5 @@ urlpatterns = [
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('<slug:slug>/comment-update/<int:pk>', views.Edit.as_view(),
          name='comment_edit'),
+    path('<slug:slug>/delete/<int:pk>', views.Delete.as_view(), name='comment_delete'),
 ]

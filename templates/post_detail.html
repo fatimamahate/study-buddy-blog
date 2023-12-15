@@ -65,6 +65,9 @@
                 </div>
                 {% if request.user.username == comment.first_name %}
                 <a href="{% url 'comment_edit' post.slug comment.pk %}" class="btn btn-signup badge"><i class="fa fa-edit"></i> Edit</a>
+                <a href="{% url 'comment_delete' post.slug comment.pk %}" class="btn btn-signup badge"><i class="fa fa-trash"></i> Delete</a>
+
+            
                 {% endif %}
                 {% endfor %}
             </div>

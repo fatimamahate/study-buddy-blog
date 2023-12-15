@@ -80,3 +80,28 @@ class Edit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
         if self.request.user.username == comment.first_name:
             return True
         return False    
+
+
+class Delete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = Comment
+    template_name = 'comment_delete.html'
+    form_class = CommentForm
+    # success 
+    def get_success_url(self):
+        slug = self.kwargs['slug']
+        return reverse_lazy('post_detail', kwargs={'slug': slug})
+
+    def form_valid(self, form):
+        form.instance.first_name = self.request.user.username
+        return super().form_valid(form)
+
+    # check if logged in user is the writer of comment
+    def test_func(self):
+        comment = self.get_object()
+        if self.request.user.username == comment.first_name:
+            return True
+        return False   
+
+
+
+

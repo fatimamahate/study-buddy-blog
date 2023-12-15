@@ -9,10 +9,6 @@ body {
     color: #4A4A4F;
 }
 
-.red-o {
-    color: #E84610;
-}
-
 .thin {
     font-weight: 300;
 }
@@ -117,6 +113,7 @@ body {
     color: #23BBBB;
 }
 
+
 .link {
     color: #23BBBB;
     text-decoration: none;
@@ -126,17 +123,4 @@ body {
 .link:active {
     color: #445261;
     text-decoration: underline;
-}
-
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
 }
