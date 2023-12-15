@@ -3,7 +3,7 @@
 # Study Buddy Blog
 This is my project called Study Buddy Blog. It is aimed towards teenagers who going through exams upto university students.
 
-[You can view the live project here](https://study-buddy-blog-01ab6e2c45d9.herokuapp.com/)
+[You can view the live project here](hhttps://study-buddy-blog-01ab6e2c45d9.herokuapp.com/)
 
 ### Project Goals:
 The aim was to create a minimalist blog post website to provide insight, tips and trick  into studying. We have the CRUD functionality, where the usess are able to create comments, read comments, Update (or Edit) comments and delete comments. 
@@ -52,4 +52,4 @@ The navbar is at the top of each page with sign in, sign out and home links to t
 ![Sign up]()
 When the screen size is smaller, the navbar responds by making the links as part of a 'hamburger menu' i.e a menu where the links are one on top of each other.
 ##### Homepage
-The 
+The omepage includes the latest blogposts. It ensures the user can see up to date articles everytime they visit the page. It would be useful to have a search function so that a user can search for older blog posts. 
