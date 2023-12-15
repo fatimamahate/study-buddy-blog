@@ -64,19 +64,19 @@ class PostDetail(View):
         )
 class Edit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Comment
-    template_name = 'post_detail.html'
+    template_name = 'comment_edit.html'
     form_class = CommentForm
 
     def get_success_url(self):
         slug = self.kwargs['slug']
-        return reverse_lazy('post_detail.html', kwargs={'slug': slug})
+        return reverse_lazy('post_detail', kwargs={'slug': slug})
     
     def form_valid(self, form):
-        form.instance.first_name = self.request.user
+        form.instance.first_name = self.request.user.username
         return super().form_valid(form)
     
     def test_func(self):
         comment = self.get_object()
-        if self.request.user == comment.first_name:
+        if self.request.user.username == comment.first_name:
             return True
         return False    
