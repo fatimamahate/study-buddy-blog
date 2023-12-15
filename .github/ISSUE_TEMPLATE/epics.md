@@ -1,7 +1,7 @@
 ---
-name: Epics:<TITLE>
+name: Epics
 about: Epics
-title: ''
+title: Epics:<Title>
 labels: ''
 assignees: ''
 
