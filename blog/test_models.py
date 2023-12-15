@@ -23,3 +23,5 @@ class TestViews(TestCase):
             body='test comment'
         )
         self.comment.save()
+
+    
