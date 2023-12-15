@@ -1,5 +1,5 @@
 body {
-    background-color: #F9FAFC;
+    background-color: whitesmoke
 }
 
 .brand {
@@ -18,7 +18,7 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #4A4A4F;
 }
 
 .main-bg {
@@ -89,7 +89,7 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #23BBBB;
 }
 
 .post-title {
