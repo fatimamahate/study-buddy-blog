@@ -64,7 +64,7 @@ class PostDetail(View):
         )
 class Edit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Comment
-    template_name = 'post_details.html'
+    template_name = 'post_detail.html'
     form_class = CommentForm
 
     def get_success_url(self):

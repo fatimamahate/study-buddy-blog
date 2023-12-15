@@ -56,13 +56,16 @@
                 {% for comment in comments %}
                 <div class="comments" style="padding:10px">
                     <p class="font-weight-bold">
-                        {{ comment.first_name}}
+                        {{ comment.first_name }}
                         <span class="text-muted font-weight-normal">
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
-                    {{ comment.body | linebreaks}}
+                    {{ comment.body | linebreaks }}
                 </div>
+                {% if request.user.username == comment.first_name %}
+                <a href="{% url 'comment_edit' post.slug comment.pk %}" class="btn btn-signup badge"><i class="fa fa-edit"></i> Edit</a>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
