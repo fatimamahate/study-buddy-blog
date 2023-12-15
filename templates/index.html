@@ -15,7 +15,7 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <img
                     class="card-img-top"
-                    src = "{% static 'images/pexels-lil-artsy-1925536.jpg' %}"
+                    src = "{% static 'images/default_image.jpg' %}"
                 />           
                 {% else %}
                 <img class="card-img-top" src="{{ post.featured_image.url }}" />
@@ -29,10 +29,10 @@
                 <p class="card-text">{{ post.excerpt }}</p>
               </a>
               <hr />
-              <p class="card-text text-muted h6">
+              <!-- <p class="card-text text-muted h6">
                 <i class="far fa-heart"></i>
                 {{ post.number_of_likes}}
-              </p>
+              </p> -->
             </div>
           </div>
         </div>

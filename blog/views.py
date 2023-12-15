@@ -1,6 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from .models import Post
+from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
+from .models import Post, Comment
 from .forms import CommentForm
 
 class PostList(generic.ListView):
@@ -15,9 +18,9 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created_on')
         comment_count = post.comments.filter(approved=True).count()
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked=True
+        # liked = False
+        # if post.likes.filter(id=self.request.user.id).exists():
+        #     liked=True
         
         return render(
             request,
@@ -26,7 +29,7 @@ class PostDetail(View):
                 'post':post,
                 'comments':comments,
                 'commented':False,
-                'liked':liked,
+                # 'liked':liked,
                 'comment_form':CommentForm()
             }
         )
@@ -34,10 +37,10 @@ class PostDetail(View):
     def post(self,request,slug,*args,**kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked=True
+        comments = post.comments.filter(approved=True).count()
+        # liked = False
+        # if post.likes.filter(id=self.request.user.id).exists():
+        #     liked=True
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
@@ -55,9 +58,25 @@ class PostDetail(View):
                 'post':post,
                 'comments':comments,
                 'commented':True,
-                'liked':liked,
+                # 'liked':liked,
                 'comment_form':CommentForm()
             }
         )
+class Edit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Comment
+    template_name = 'post_details.html'
+    form_class = CommentForm
 
-
+    def get_success_url(self):
+        slug = self.kwargs['slug']
+        return reverse_lazy('post_detail.html', kwargs={'slug': slug})
+    
+    def form_valid(self, form):
+        form.instance.first_name = self.request.user
+        return super().form_valid(form)
+    
+    def test_func(self):
+        comment = self.get_object()
+        if self.request.user == comment.first_name:
+            return True
+        return False    
