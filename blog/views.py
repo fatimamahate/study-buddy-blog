@@ -80,7 +80,6 @@ class Delete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Comment
     template_name = 'comment_delete.html'
     form_class = CommentForm
-    # success 
     def get_success_url(self):
         slug = self.kwargs['slug']
         return reverse_lazy('post_detail', kwargs={'slug': slug})
